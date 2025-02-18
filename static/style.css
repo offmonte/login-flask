@@ -1,0 +1,89 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f8f8, #e6e6e6);
+    color: #333;
+    margin: 0;
+}
+
+/* Estilos do Container */
+.login-container, .home-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    backdrop-filter: blur(8px);
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Campos de Entrada */
+.input-group {
+    margin: 10px 0;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background: #f9f9f9;
+    color: #333;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #bbb;
+}
+
+/* Botões */
+button {
+    width: 50%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+}
+
+button:hover {
+    background: #f1f1f1;
+}
+
+/* Botão de Logout */
+.logout-btn {
+    background: #ffffff;
+    color: #333;
+}
+
+.logout-btn:hover {
+    background: #f1f1f1;
+}
+
+/* Mensagem de Erro */
+.error {
+    color: #ff4c4c;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
