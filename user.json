@@ -2,15 +2,13 @@
     "data": [
         {
             "user": "admin",
-            "password": "admin"
+            "password": "admin",
+            "key": "HK4NALVHGYMFZWBWOCQFLYCZDR2KJHCB"
         },
         {
             "user": "teste",
-            "password": "123"
-        },
-        {
-            "user": "teste2",
-            "password": "teste2"
+            "password": "123",
+            "key": "FCRMJIQVGHWZNPTWN5RJFIMLP7FVPV74"
         }
     ]
 }

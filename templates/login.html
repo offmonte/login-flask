@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .modal {
+            display: none; /* escondido por padrão */
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
@@ -31,5 +48,32 @@
 
         <p class="register-link">Não tem uma conta? <a href="{{ url_for('register') }}">Cadastre-se</a></p>
     </div>
+
+    {% if show_otp_modal %}
+    <!-- Modal para autenticação de dois fatores -->
+    <div class="modal" id="otpModal">
+        <div class="modal-content">
+            <form method="POST">
+                <p>Insira o código de autenticação de 2 fatores para continuar</p>
+
+                <!-- Campo escondido para manter username no POST -->
+                <input type="hidden" name="username" value="{{ username }}">
+                <input type="hidden" name="password" value="__placeholder__"> <!-- Substituir pelo valor real ou session -->
+
+                <div class="input-group">
+                    <input type="text" name="otp_code" placeholder="Código de autenticação" required>
+                </div>
+
+                <button type="submit">Continuar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("otpModal").style.display = "flex";
+        }
+    </script>
+    {% endif %}
 </body>
 </html>

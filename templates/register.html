@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
@@ -31,5 +69,22 @@
 
         <p class="register-link">Já tem uma conta? <a href="{{ url_for('login') }}">Faça login</a></p>
     </div>
+
+    {% if show_qrcode %}
+    <div class="modal" id="qrcodeModal">
+        <div class="modal-content">
+            <p>Use seu aplicativo de autenticador para escanear o QRcode</p>
+            <img src="{{ url_for('static', filename='qrcode.png') }}" alt="QR Code">
+            <a href="{{ url_for('finalizar') }}"><button>Concluir cadastro</button></a>
+        </div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            document.getElementById('qrcodeModal').style.display = 'flex';
+        }
+    </script>
+    {% endif %}
+
 </body>
 </html>
